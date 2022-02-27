@@ -1,5 +1,5 @@
-import firebase from "firebase/app"
-import "firebase/auth"
+import firebase from "firebase/compat/app"
+import "firebase/compat/auth"
 
 //STARTS FIREBASE APP AND CONNECTS APPLIACTION
 
@@ -12,3 +12,6 @@ const app = firebase.initializeApp({
     appId: process.env.REACT_APP_FIREBASE_APP_ID,
     measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
 })
+
+export const auth = app.auth()
+export default app
