@@ -3,9 +3,9 @@ import React from "react"
 import { Container } from 'react-bootstrap'
 import { AuthProvider } from "../contexts/authContext"
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Dashboard from "./Dashboard";
+import Dashboard from "./Dashboard"
 import Login from "./Login";
-import PrivateRoute from "./privateRoute";
+import PrivateRoute from "./privateRoute"
 
 function App() {
   return (
@@ -19,7 +19,11 @@ function App() {
         <BrowserRouter>
           <AuthProvider>
             <Routes>
-              <PrivateRoute exact path="/" element={<Dashboard/>}/>
+              <Route path="/" element={
+                <PrivateRoute>
+                  <Dashboard/>
+                </PrivateRoute>
+              }/>
               <Route path="/signup" element={<Signup/>}/>
               <Route path="/login" element={<Login/>}/>
             </Routes>
