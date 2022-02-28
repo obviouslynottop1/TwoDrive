@@ -1,23 +1,24 @@
 import React, { useRef, useState } from "react";
 import { Card, Button, Form, Alert } from 'react-bootstrap'
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useAuth } from "../contexts/authContext"
 
-export default function Login() {
+export default function ForgotPassword() {
     const emailRef = useRef()
-    const passwordRef = useRef()
-    const { login } = useAuth()
+    const { resetPassword } = useAuth()
     const [error, setError] = useState("")
+    const [message, setMessage] = useState("")
     const [loading, setLoading] = useState(false)
-    const history = useNavigate()
 
     async function handleSubmit(e){
         e.preventDefault()
-        try {   
+        try {  
+            setMessage("") 
             setError("")
             setLoading(true)
-           await login(emailRef.current.value, passwordRef.current.value)
-           history("/")
+           await resetPassword(emailRef.current.value)
+           setMessage('Check your inbox for further instructions.')
+           
         }
         catch{
             setError("Failed to login")
@@ -36,15 +37,11 @@ export default function Login() {
                   <Form.Group id="email">
                       <Form.Label>Email</Form.Label>
                       <Form.Control type="email" ref={emailRef} required/> 
-                  </Form.Group>
-                  <Form.Group id="password">
-                      <Form.Label>Password</Form.Label>
-                      <Form.Control type="password" ref={passwordRef} required/> 
-                  </Form.Group>
-                  <Button className="w-100 mt-3" type="submit" disabled={loading}>Login</Button>
+                  </Form.Group>           
+                  <Button className="w-100 mt-3" type="submit" disabled={loading}>Reset Password</Button>
               </Form>
               <div className="w-100 text-center mt-3">
-                  <Link to="/forgot-password">Forgot Password</Link>
+                  <Link to="/login">Login</Link>
               </div>
           </Card.Body>
       </Card>
