@@ -63,7 +63,7 @@ export default function UpdateProfile() {
               </Form>
           </Card.Body>
       </Card>
-        <div className='w-100 text-center mt-2'>Go back? <Link to="/">Dashboard</Link></div>
+        <div className='w-100 text-center mt-2 text-white'>Go back? <Link to="/">Dashboard</Link></div>
     </>
   )
 }

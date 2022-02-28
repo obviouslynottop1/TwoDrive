@@ -31,7 +31,7 @@ export default function ForgotPassword() {
     <>
       <Card>
           <Card.Body>          
-              <h2 className='text-center mb-4'>Log In</h2>
+              <h2 className='text-center mb-4'>Password Reset</h2>
                 {error && <Alert variant="danger">{error}</Alert>}
               <Form onSubmit={handleSubmit}>
                   <Form.Group id="email">
@@ -45,7 +45,7 @@ export default function ForgotPassword() {
               </div>
           </Card.Body>
       </Card>
-        <div className='w-100 text-center mt-2'>Need an account? <Link to="/signup">Sign up</Link></div>
+        <div className='w-100 text-center mt-2 text-white'>Need an account? <Link to="/signup">Sign up</Link></div>
     </>
   )
 }
