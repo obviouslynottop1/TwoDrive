@@ -1,7 +1,8 @@
 import React, { useRef, useState } from "react";
 import { Card, Button, Form, Alert } from 'react-bootstrap'
-import { useAuth } from "../contexts/authContext"
+import { useAuth } from "../../contexts/authContext"
 import { Link, useNavigate } from "react-router-dom";
+import CenteredContainer from "./CenteredContainer";
 
 export default function UpdateProfile() {
     const emailRef = useRef()
@@ -41,7 +42,7 @@ export default function UpdateProfile() {
         })
      }
   return (
-    <>
+    <CenteredContainer>
       <Card>
           <Card.Body>          
               <h2 className='text-center mb-4'>Update Profile</h2>
@@ -63,7 +64,7 @@ export default function UpdateProfile() {
               </Form>
           </Card.Body>
       </Card>
-        <div className='w-100 text-center mt-2 text-white'>Go back? <Link to="/">Dashboard</Link></div>
-    </>
+        <div className='w-100 text-center mt-2 text-white'><Link to="/profile">Go back? </Link></div>
+    </CenteredContainer>
   )
 }

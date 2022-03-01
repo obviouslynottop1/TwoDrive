@@ -1,5 +1,7 @@
 import firebase from "firebase/compat/app"
 import "firebase/compat/auth"
+import "firebase/compat/firestore"
+
 
 //STARTS FIREBASE APP AND CONNECTS APPLIACTION
 
@@ -13,5 +15,14 @@ const app = firebase.initializeApp({
     measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
 })
 
+const firestore = app.firestore()
+export const database = {
+  folders: firestore.collection("folders"),
+  files: firestore.collection("files"),
+  formatDoc: doc => {
+    return { id: doc.id, ...doc.data() }
+  },
+  getCurrentTimestamp: firebase.firestore.FieldValue.serverTimestamp,
+}
 export const auth = app.auth()
 export default app
