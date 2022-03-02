@@ -21,6 +21,14 @@ function App() {
                   <Dashboard/>
                 </PrivateRoute>
               }/>
+
+              <Route path="/folder/:folderId" element={
+                <PrivateRoute>
+                  <Dashboard/>
+                </PrivateRoute>
+              }/>
+
+
               {/*Profile Routes*/}
               <Route path="/profile" element={
                 <PrivateRoute>
